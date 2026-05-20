@@ -138,4 +138,55 @@ http://localhost:3000
 - nginx.conf
 
 
+## Enzo
+3. Frontend: Acesso e Controle de Estado (Dev 3)
+Esta pessoa vai conectar o frontend com o motor de autenticação (Dev 1) e garantir que o app inteiro saiba quem está logado.
+
+Telas Principais: Interface de Login e Cadastro.
+
+Gerenciamento de Estado: Configurar o estado global da aplicação (armazenar se o usuário está logado, seus dados básicos e suas permissões para esconder/mostrar menus).
+
+Segurança no Client: Lógica de armazenamento seguro do JWT e do Refresh Token (ex: Secure Storage no mobile ou HttpOnly Cookies / Session Storage na web).
+
+Interceptors HTTP: Criar a configuração do cliente HTTP (ex: Axios ou Dio) para injetar automaticamente o JWT em todas as requisições e tentar o Refresh Token silenciosamente caso receba um erro 401.
+
+
+## Pablo
+
+2. Backend: Identidade e Gestão (Dev 2)
+Esta pessoa focará nas regras de negócio da conta do usuário e nos processos assíncronos.
+
+Modelagem e CRUD de Usuários: Criação, edição e bloqueio de contas.
+
+Sistema de Permissões: Estruturar como as permissões e roles (admin, user, manager) são vinculadas aos usuários no banco de dados.
+
+Recuperação de Senha: Criar o fluxo de geração de token temporário (com validade de tempo), armazenamento desse token e disparo do e-mail com o link de recuperação.
+
+Redefinição de Senha: O endpoint que recebe o token do e-mail e a nova senha, aplica o hash e atualiza o banco.
+
+
+## Allan
+1. Backend: Core de Autenticação (Dev 1)
+Esta pessoa cuidará do "motor" de segurança. O foco aqui não é o dado do usuário em si, mas sim garantir que quem está batendo na porta é quem diz ser.
+
+Login & Validação de Credenciais: Receber usuário/senha, aplicar hash e comparar com o banco.
+
+Geração e Assinatura de JWT: Criar o token contendo o payload básico (ID do usuário e roles).
+
+Refresh Token: Criar a lógica de emissão, armazenamento seguro no banco (para poder revogar, se necessário) e renovação do JWT expirado.
+
+Middlewares de Segurança: Criar os filtros/interceptors do backend que validarão o JWT nas rotas privadas.
+
+## Matheus
+
+4. Frontend: Fluxos de Gestão (Dev 4)
+Esta pessoa focará nas interfaces de administração, na jornada de recuperação e na experiência do usuário (UX).
+
+Fluxo de Recuperação: Telas de "Esqueci minha senha" (input de e-mail), tela de feedback ("Verifique seu e-mail") e a tela final de "Criar nova senha" (lendo o token da URL).
+
+Painel de Permissões: Interface onde um administrador pode buscar usuários e atribuir ou remover permissões/roles.
+
+Gestão de Perfil: Tela para o usuário alterar seus próprios dados (nome, e-mail, foto).
+
+Validações Visuais: Garantir que todos os formulários tenham validações fortes e mensagens de erro amigáveis (ex: "A senha deve conter 8 caracteres").
 

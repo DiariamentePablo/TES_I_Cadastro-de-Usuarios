@@ -1,0 +1,20 @@
+{
+  "name": "servico_permissoes",
+  "version": "1.0.0",
+  "description": "Microsserviço de Autorização e Permissões - controla quem pode fazer o quê no sistema",
+  "main": "src/servidor.js",
+  "scripts": {
+    "iniciar": "node src/servidor.js",
+    "desenvolvimento": "nodemon src/servidor.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.11.5",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^16.4.5",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

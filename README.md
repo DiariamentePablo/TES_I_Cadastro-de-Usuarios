@@ -190,3 +190,15 @@ Gestão de Perfil: Tela para o usuário alterar seus próprios dados (nome, e-ma
 
 Validações Visuais: Garantir que todos os formulários tenham validações fortes e mensagens de erro amigáveis (ex: "A senha deve conter 8 caracteres").
 
+## Ygor de Andrade
+
+3. Backend: Autorização e Permissões / AuthZ (Dev 5 - NOVO)
+Este desenvolvedor vai construir o IAM (Identity and Access Management). Ele foca apenas nas regras de negócio de acesso. Responde à pergunta: "Essa pessoa tem permissão para fazer isso?"
+
+Gestão de Roles: Criar papéis (Admin, Gerente, Operador).
+
+Gestão de Permissões Granulares: Relacionar ações específicas aos papéis (ex: users:read, reports:write).
+
+Motor de Validação: Criar o serviço (ou middleware compartilhado) que os outros microsserviços vão consultar para saber se o usuário X pode acessar o recurso Y.
+
+Vínculo Usuário-Role: A tabela que liga o ID do usuário aos papéis que ele possui.
